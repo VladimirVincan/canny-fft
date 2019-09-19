@@ -3,6 +3,11 @@ import cv2
 from matplotlib import pyplot as plt
 from convolution_cpp_lib import matrix_convolution
 
+# import the necessary packages
+#from picamera.array import PiRGBArray
+#from picamera import PiCamera
+#import time
+
 def rgb2gray(rgb):
     r, g, b = rgb[:, :, 0], rgb[:, :, 1], rgb[:, :, 2]
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
@@ -246,6 +251,15 @@ global LOWER_THRESHOLD
 global UPPER_THRESHOLD
 LOWER_THRESHOLD = 127
 UPPER_THRESHOLD = 255
+
+#camera = PiCamera()
+#rawCapture = PiRGBArray(camera)
+# allow the camera to warmup
+#time.sleep(0.1)
+# grab an image from the camera
+#camera.capture(rawCapture, format="bgr")
+#img = rawCapture.array
+
 img = cv2.imread(r"/home/bici/Desktop/rpi-project/images/lena.jpg")
 gray = rgb2gray(img)
 
